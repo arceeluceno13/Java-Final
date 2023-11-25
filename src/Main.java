@@ -1,6 +1,11 @@
-package classes;
+
 
 import java.util.Scanner;
+
+import classes.BillingMethod;
+import classes.ComputerSpecs;
+import classes.Premium;
+import classes.Regular;
 
 public class Main {
     public static void main(String[] args) {
