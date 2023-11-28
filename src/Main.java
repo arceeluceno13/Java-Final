@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 
 import classes.BillingMethod;
@@ -81,6 +79,7 @@ public class Main {
             System.out.println("1. Cash");
             System.out.println("2. Credit Card");
             int choice = scanner.nextInt();
+            scanner.nextLine();
 
             String paymentMethod;
             if (choice == 1) {
@@ -94,16 +93,22 @@ public class Main {
 
             BillingMethod billing = new BillingMethod(paymentMethod);
 
-            System.out.println("Would you like to confirm payment? (yes/no): ");
-            scanner.nextLine(); // Consume the newline character
-            String confirmation = scanner.nextLine();
+            while (true) {
+                System.out.println("Would you like to confirm payment? (yes/no): ");
+                String confirmation = scanner.nextLine();
 
-            if (confirmation.equalsIgnoreCase("yes")) {
-                billing.confirmPayment();
-                System.out.println("Payment confirmed!");
-            } else {
-                System.out.println("Payment not confirmed.");
+                if (confirmation.equalsIgnoreCase("yes")) {
+                    billing.confirmPayment();
+                    System.out.println("Payment confirmed!");
+                    break;
+                } else if (confirmation.equalsIgnoreCase("no")) {
+                    System.out.println("Payment not Confirmed! Please try again.");
+                    System.exit(0);
+                } else {
+                    System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+                }
             }
+
 
             Regular regularAccount = new Regular(name, contact_number, email, accstatus, IDnumber, hours, balance, "REGULAR", 40);
             regularAccount.displayUserInfo();
@@ -170,6 +175,7 @@ public class Main {
             System.out.println("1. Cash");
             System.out.println("2. Credit Card");
             int choice = scanner.nextInt();
+            scanner.nextLine();
 
             String paymentMethod;
             if (choice == 1) {
@@ -183,15 +189,21 @@ public class Main {
 
             BillingMethod billing = new BillingMethod(paymentMethod);
 
-            System.out.println("Would you like to confirm payment? (yes/no): ");
-            scanner.nextLine(); // Consume the newline character
-            String confirmation = scanner.nextLine();
+            while (true) {
+                System.out.println("Would you like to confirm payment? (yes/no): ");
+                String confirmation = scanner.nextLine();
 
-            if (confirmation.equalsIgnoreCase("yes")) {
-                billing.confirmPayment();
-                System.out.println("Payment confirmed!");
-            } else {
-                System.out.println("Payment not confirmed.");
+                if (confirmation.equalsIgnoreCase("yes")) {
+                    billing.confirmPayment();
+                    System.out.println("Payment confirmed!");
+                    break;
+                } else if (confirmation.equalsIgnoreCase("no")) {
+                    System.out.println("Payment not Confirmed! Please try again.");
+                    System.exit(0);
+                } else {
+                    System.out.println("Invalid input. Please enter 'yes' or 'no'.");
+
+                }
             }
 
             Premium premiumAccount = new Premium(name, contact_number, email, accstatus, IDnumber, hours, 500, "PREMIUM", 30);
