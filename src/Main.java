@@ -8,12 +8,15 @@ import classes.Regular;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter type (Regular/Premium): ");
-        String type = scanner.nextLine();
-
-        if (type.equalsIgnoreCase("Regular")) {
+        System.out.print("Pick a number: \n");
+        System.out.println("1. Regular");
+        System.out.println("2. Premium");
+        int type = scanner.nextInt();
+        switch (type){
+        case 1:
             System.out.print("Enter your name: ");
             String name = scanner.nextLine();
+            scanner.nextLine();
 
 
             String email;
@@ -129,11 +132,14 @@ public class Main {
 
             regularAccount.startCountdown(hours);
 
-        } else if (type.equalsIgnoreCase("Premium")) {
-            System.out.print("Enter your name: ");
-            String name = scanner.nextLine();
+            break;
 
-            String email;
+            case 2:
+            System.out.print("Enter your name: ");
+            name = scanner.nextLine();
+            scanner.nextLine();
+
+
             while (true) {
                 System.out.print("Enter your Email: ");
                 email = scanner.nextLine();
@@ -144,8 +150,8 @@ public class Main {
                 }
             }
 
-            boolean accstatus = false;
-            boolean isValidInput = false;
+             accstatus = false;
+             isValidInput = false;
             while (!isValidInput) {
                 System.out.print("ACTIVE (Y/N): ");
                 String input = scanner.nextLine().trim().toUpperCase();
@@ -161,7 +167,7 @@ public class Main {
                 }
             }
 
-            String contact_number;
+
             while (true) {
                 System.out.print("Enter your ContactNumber (11 digits starting with 09): ");
                 contact_number = scanner.nextLine();
@@ -174,19 +180,19 @@ public class Main {
             }
 
             System.out.print("Enter your IDnumber: ");
-            int IDnumber = scanner.nextInt();
+            IDnumber = scanner.nextInt();
             scanner.nextLine();
 
             System.out.println("Enter your Time(Hours): ");
-            int hours = scanner.nextInt();
+            hours = scanner.nextInt();
 
             System.out.println("Choose a payment method: ");
             System.out.println("1. Cash");
             System.out.println("2. Credit Card");
-            int choice = scanner.nextInt();
+            choice = scanner.nextInt();
             scanner.nextLine();
 
-            String paymentMethod;
+
             if (choice == 1) {
                 paymentMethod = "Cash";
             } else if (choice == 2) {
@@ -196,14 +202,14 @@ public class Main {
                 paymentMethod = "Cash";
             }
 
-            BillingMethod billing = new BillingMethod(paymentMethod);
+            BillingMethod billpremium = new BillingMethod(paymentMethod);
 
             while (true) {
                 System.out.println("Would you like to confirm payment? (yes/no): ");
                 String confirmation = scanner.nextLine();
 
                 if (confirmation.equalsIgnoreCase("yes")) {
-                    billing.confirmPayment();
+                    billpremium.confirmPayment();
                     System.out.println("Payment confirmed!");
                     break;
                 } else if (confirmation.equalsIgnoreCase("no")) {
@@ -218,15 +224,18 @@ public class Main {
             Premium premiumAccount = new Premium(name, contact_number, email, accstatus, IDnumber, hours, 500, "PREMIUM", 30);
             premiumAccount.displayUserInfo();
 
-            billing.displayPaymentMethod();
+            billpremium.displayPaymentMethod();
 
-            ComputerSpecs Computer = new ComputerSpecs(100, true, true, "Acer Nitro VG240Y", "RTX 4090");
-            Computer.displaySpecs();
+            ComputerSpecs ComputerPrem = new ComputerSpecs(100, true, true, "Acer Nitro VG240Y", "RTX 4090");
+            ComputerPrem.displaySpecs();
 
             premiumAccount.startCountdown(hours);
 
-        } else {
-            System.exit(0);
+            break;
+
+            default:
+                System.out.println("Please try again!.");
+                break;
         }
 
         scanner.close();
