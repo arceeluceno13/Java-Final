@@ -57,9 +57,18 @@ public class Main {
                 }
             }
 
-            System.out.print("Enter your IDnumber: ");
-            int IDnumber = scanner.nextInt();
-            scanner.nextLine();
+            int IDnumber;
+            while (true){
+                System.out.print("Enter your IDnumber: ");
+                IDnumber = scanner.nextInt();
+                scanner.nextLine();
+                if(IDnumber > 0){
+                    break;
+                }
+                else {
+                    System.out.println("Please enter a positive number: ");
+                }
+            }
 
             int balance;
             while (true) {
@@ -116,7 +125,7 @@ public class Main {
             billing.displayPaymentMethod();
 
             ComputerSpecs Computer = new ComputerSpecs(50, true, true, "Nvision N200V8 20 LED Monitor", "RTX 3080 ti");
-            Computer.DisplaySpecs();
+            Computer.displaySpecs();
 
             regularAccount.startCountdown(hours);
 
@@ -212,7 +221,7 @@ public class Main {
             billing.displayPaymentMethod();
 
             ComputerSpecs Computer = new ComputerSpecs(100, true, true, "Acer Nitro VG240Y", "RTX 4090");
-            Computer.DisplaySpecs();
+            Computer.displaySpecs();
 
             premiumAccount.startCountdown(hours);
 
