@@ -10,7 +10,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean validInput = false;
         while (!validInput) {
-            System.out.println("********* WELCOME TO INTERNET CAFE SYSTEM ***************");
+            System.out.println("\n\n********* WELCOME TO INTERNET CAFE SYSTEM ***************");
             System.out.println("* What type of user are you ?                            *");
             System.out.println("* 1. Regular                                             *");
             System.out.println("* 2. Premium                                             *");
@@ -288,7 +288,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Invalid Input please try again!.");
+                    System.out.println("Invalid Input please try again!.\n\n");
                     break;
             }
         }
