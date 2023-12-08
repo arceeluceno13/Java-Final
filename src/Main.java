@@ -82,10 +82,10 @@ public class Main {
                     System.out.println("\n---* Billing Details *---\"");
 
                     int hours;
-                    while(true) {
+                    while (true) {
                         System.out.print("Enter your Time(Hours): ");
                         hours = scanner.nextInt();
-                        if (hours > 0){
+                        if (hours > 0) {
                             break;
                         } else {
                             System.out.println("Please enter a positive number!");
@@ -161,7 +161,6 @@ public class Main {
                     scanner.nextLine();
 
 
-
                     while (true) {
                         System.out.print("Enter your Email: ");
                         email = scanner.nextLine();
@@ -203,7 +202,6 @@ public class Main {
                     }
 
 
-
                     while (true) {
                         System.out.print("Enter your IDnumber: ");
                         IDnumber = scanner.nextInt();
@@ -218,10 +216,10 @@ public class Main {
                     System.out.println("\n---* Billing Details *---\"");
 
 
-                    while(true) {
+                    while (true) {
                         System.out.print("Enter your Time(Hours): ");
                         hours = scanner.nextInt();
-                        if (hours > 0){
+                        if (hours > 0) {
                             break;
                         } else {
                             System.out.println("Please enter a positive number!");
@@ -274,7 +272,7 @@ public class Main {
                         }
 
 
-                    System.out.println("-------------------------------------------------");
+                        System.out.println("-------------------------------------------------");
                     }
 
                     Premium premiumAccount = new Premium(name, contact_number, email, accstatus, IDnumber, hours, 500, "PREMIUM", 30);
