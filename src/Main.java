@@ -25,7 +25,6 @@ public class Main {
                     String name = scanner.nextLine();
 
 
-
                     String email;
                     while (true) {
                         System.out.print("Enter your Email: ");
