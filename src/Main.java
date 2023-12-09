@@ -21,8 +21,9 @@ public class Main {
                 case 1:
                     System.out.println("\n---* Personal Details *---");
                     System.out.print("Enter your name: ");
-                    String name = scanner.nextLine();
                     scanner.nextLine();
+                    String name = scanner.nextLine();
+
 
 
                     String email;
@@ -157,8 +158,8 @@ public class Main {
                 case 2:
                     System.out.println("\n---* Personal Details *---");
                     System.out.print("Enter your name: ");
-                    name = scanner.nextLine();
                     scanner.nextLine();
+                    name = scanner.nextLine();
 
 
                     while (true) {
