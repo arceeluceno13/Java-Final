@@ -119,7 +119,7 @@ public class Main {
                             System.out.println("Details updated successfully!");
                             break;
                         } else if (update.equals("N")) {
-                            System.out.println("Details still intact!");
+                            System.out.println("Details still remain.");
                             break;
                         } else {
                             System.out.println("Please pick between Y/N!");
@@ -306,7 +306,7 @@ public class Main {
                             System.out.println("Details updated successfully!");
                             break;
                         } else if (update.equals("N")) {
-                            System.out.println("Details still intact!");
+                            System.out.println("Details still remain.");
                             break;
                         } else {
                             System.out.println("Please pick between Y/N!");
