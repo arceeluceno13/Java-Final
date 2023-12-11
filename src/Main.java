@@ -1,9 +1,6 @@
 import java.util.Scanner;
 
-import classes.BillingMethod;
-import classes.ComputerSpecs;
-import classes.Premium;
-import classes.Regular;
+import classes.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -79,6 +76,57 @@ public class Main {
                         }
                     }
                     System.out.println("-------------------------------------------------");
+
+                    UserAccount reguser = new UserAccount(name, contact_number, email, accstatus, IDnumber);
+
+                    String update;
+                    while (true) {
+                        System.out.print("\nDo you want to update your details? (Y/N): ");
+                        update = scanner.nextLine().trim().toUpperCase();
+
+                        if (update.equals("Y")) {
+                            System.out.println("Enter new Name: ");
+                            name = scanner.nextLine();
+                            reguser.setName(name);
+
+                            while (true) {
+                                System.out.print("Enter your Email: ");
+                                email = scanner.nextLine();
+                                if (email.contains("@")) {
+                                    break;
+                                } else {
+                                    System.out.println("Invalid email format.");
+                                }
+                            }
+                            reguser.setEmail(email);
+
+                            while (true) {
+                                System.out.print("Enter your new ContactNumber (11 digits starting with 09): ");
+                                contact_number = scanner.nextLine();
+
+                                if (contact_number.matches("09\\d{9}") && contact_number.length() == 11) {
+                                    break;
+                                } else {
+                                    System.out.println("Invalid input. ContactNumber should start with 09 followed by 9 digits (numbers only).");
+                                }
+                            }
+                            reguser.setContact_number(contact_number);
+
+                            System.out.print("Enter new IDNumber: ");
+                            IDnumber = scanner.nextInt();
+                            reguser.setIDnumber(IDnumber);
+
+                            System.out.println("Details updated successfully!");
+                            break;
+                        } else if (update.equals("N")) {
+                            System.out.println("Details still intact!");
+                            break;
+                        } else {
+                            System.out.println("Please pick between Y/N!");
+                        }
+                    }
+                    System.out.println("-------------------------------------------------");
+
                     System.out.println("\n---* Billing Details *---\"");
 
                     int hours;
@@ -129,9 +177,11 @@ public class Main {
                         if (confirmation.equalsIgnoreCase("Y")) {
                             regbilling.confirmPayment();
                             System.out.println("Payment confirmed!");
+                            System.out.println("-------------------------------------------------");
                             break;
                         } else if (confirmation.equalsIgnoreCase("N")) {
                             System.out.println("Payment not Confirmed! Thank you come again!");
+                            System.out.println("-------------------------------------------------");
                             System.exit(0);
                         } else {
                             System.out.println("Invalid input. Please enter 'Y' or 'N'.");
@@ -212,6 +262,57 @@ public class Main {
                             System.out.println("Please enter a positive number!");
                         }
                     }
+
+                    System.out.println("-------------------------------------------------");
+
+                    UserAccount premuser = new UserAccount(name, contact_number, email, accstatus, IDnumber);
+
+                    while (true) {
+                        System.out.print("\nDo you want to update your details? (Y/N): ");
+                        update = scanner.nextLine().trim().toUpperCase();
+
+                        if (update.equals("Y")) {
+                            System.out.println("Enter new Name: ");
+                            name = scanner.nextLine();
+                            premuser.setName(name);
+
+                            while (true) {
+                                System.out.print("Enter your Email: ");
+                                email = scanner.nextLine();
+                                if (email.contains("@")) {
+                                    break;
+                                } else {
+                                    System.out.println("Invalid email format.");
+                                }
+                            }
+                            premuser.setEmail(email);
+
+                            while (true) {
+                                System.out.print("Enter your new ContactNumber (11 digits starting with 09): ");
+                                contact_number = scanner.nextLine();
+
+                                if (contact_number.matches("09\\d{9}") && contact_number.length() == 11) {
+                                    break;
+                                } else {
+                                    System.out.println("Invalid input. ContactNumber should start with 09 followed by 9 digits (numbers only).");
+                                }
+                            }
+                            premuser.setContact_number(contact_number);
+
+                            System.out.print("Enter new IDNumber: ");
+                            IDnumber = scanner.nextInt();
+                            premuser.setIDnumber(IDnumber);
+
+                            System.out.println("Details updated successfully!");
+                            break;
+                        } else if (update.equals("N")) {
+                            System.out.println("Details still intact!");
+                            break;
+                        } else {
+                            System.out.println("Please pick between Y/N!");
+                        }
+                    }
+
                     System.out.println("-------------------------------------------------");
                     System.out.println("\n---* Billing Details *---\"");
 
@@ -262,17 +363,17 @@ public class Main {
                         if (confirmation.equalsIgnoreCase("Y")) {
                             prembill.confirmPayment();
                             System.out.println("Payment confirmed!");
+                            System.out.println("-------------------------------------------------");
                             break;
                         } else if (confirmation.equalsIgnoreCase("N")) {
                             System.out.println("Payment not Confirmed! Thank you come again!");
+                            System.out.println("-------------------------------------------------");
                             System.exit(0);
                         } else {
                             System.out.println("Invalid input. Please enter 'Y' or 'N'.");
 
                         }
 
-
-                        System.out.println("-------------------------------------------------");
                     }
 
                     Premium premiumAccount = new Premium(name, contact_number, email, accstatus, IDnumber, hours, 500, "PREMIUM", 30);
@@ -289,7 +390,6 @@ public class Main {
 
                 default:
                     System.out.println("Invalid Input please try again!.\n\n");
-                    break;
             }
         }
 

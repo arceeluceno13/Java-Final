@@ -15,6 +15,24 @@ public class UserAccount {
         this.IDnumber = IDnumber;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setContact_number(String contact_number) {
+        this.contact_number = contact_number;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setIDnumber(int IDnumber) {
+        this.IDnumber = IDnumber;
+    }
+
+
+
     public void displayUserInfo() {
         System.out.println("\n\n###INFO###");
         System.out.println("Name: " + name);
